@@ -1,0 +1,113 @@
+﻿@model IEnumerable<OnlineMobileRechargeSystem.Models.Provider>
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .gradient-custom-3 {
+        /* fallback for old browsers */
+        background: #84fab0;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+</style>
+<div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+            <div class="card shadow-2-strong card-registration bg-info gradient-custom-3" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5 w-110">
+                    <h3>
+                        Mobile Recharge
+                    </h3>
+                    <form id="form2" method="post">
+                        <table class="w-100">
+                            <tr>
+                                <td>
+                                    <strong>
+                                        Number:
+                                    </strong>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="TextBoxNumber" class="form-control" placeholder="Enter Valid Number" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="auto-style1">
+                                    <strong>
+                                        Operator:
+                                    </strong>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="DropDownListProvider" class="form-control">
+                                        <!--<option Value="Select Opeartor">Select Opeartor</option>-->
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <option>@item.ProviderName</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        Circle:
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style2">
+                                    <select id="DropDownListCircle" class="form-control">
+                                        <option>Delhi NCR</option>
+                                        <option>Asam</option>
+                                        <option>Bihar</option>
+                                        <option>Chennai</option>
+                                        <option>Gujarat</option>
+                                        <option>Haryana</option>
+                                        <option>Jammu and Kashmir</option>
+                                        <option>Karnataka</option>
+                                        <option>Kerala</option>
+                                        <option>Kolkata</option>
+                                        <option>Madhya Pradesh</option>
+                                        <option>Maharashtra</option>
+                                        <option>Mumbai</option>
+                                        <option>North East</option>
+                                        <option>Orissa</option>
+                                        <option>Punjab</option>
+                                        <option>Rajasthan</option>
+                                        <option>Tamil Nadu</option>
+                                        <option>UP East</option>
+                                        <option>UP West</option>
+                                        <option>West Bengal</option>
+                                        <option>Andhra Pradesh</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <br />
+                                    <input type="submit" id="ButtonProceed" class="form-control btn btn-secondary" style="background-color:lightcoral" value="Proceed"/>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                    <br/> <center>Checkout Recharge History <a href="">Here</a></center>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
