@@ -1,0 +1,76 @@
+﻿@model IEnumerable<OnlineMobileRechargeSystem.Models.RechargeList>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="m-auto">
+    <div class="m-auto p-2 border text-center">
+        <h1 ID="upperlabel"  style="display:inline;">@ViewBag.number<a class="btn btn-dark float-right" asp-action="homepage" asp-controller="Home" ID="Button1">Change</a></h1>
+    </div>
+    <div class="mt-4 text-center">
+        <form method="post" asp-controller="Packages" asp-action="Index">
+            <input type="text" name="pid" value="@ViewBag.pid" hidden/>
+            <input type="text" name="ph_number" value="@ViewBag.number" hidden />
+            @foreach (var type in ViewBag.type)
+            {
+                <button type="submit" name="tid" value="@type.Id" class="btn btn-dark">@type.RechargeType</button>
+            }
+        </form>
+
+    </div>
+</div>
+
+    <table class="table mt-4 table-striped">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.validity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Datapack)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SMSLimit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Voice)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody >
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        ₹ @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.validity) Days
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Datapack)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SMSLimit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voice)
+                    </td>
+                    <td>
+                        <form method="get" asp-action="Summary" asp-route-id="@item.Id">
+                            <input type="text" name="pid" value="@ViewBag.pid" hidden />
+                            <input type="text" name="ph_number" value="@ViewBag.number" hidden />
+                            <button type="submit" class="btn btn-primary p-1 px-3 mb-1 mt-0">Buy</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<OnlineMobileRechargeSystem.Models.RechargeList>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<p>
+    <p class="h1" style="display:inline">Index</p>
+    <a asp-action="SelectProvider" class="float-right btn btn-dark">Create New</a>
+    </p>*@
+<style type="text/css">
+
+    .auto-style1 {
+        --bs-table-bg: transparent;
+        --bs-table-accent-bg: transparent;
+        --bs-table-striped-color: #212529;
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+        --bs-table-active-color: #212529;
+        --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+        --bs-table-hover-color: #212529;
+        --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+        margin-bottom: 1rem;
+        color: #212529;
+        vertical-align: top;
+        border-color: #dee2e6;
+    }
+</style>
+<h1 class="h1 bg-dark text-light rounded" align="center">Admin Page</h1>
+<div>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="card-header text-white bg-dark">
+                            Admin Page
+
+                        </h3>
+                        <div class="card-body">
+                            <label class="form-control bg-info text-white ">Manage From Here</label>
+                            <br />
+                            <label class="col-md-5 col-form-label-lg">Provider </label>
+                            <a asp-controller="Provider" asp-action="Index" class="col-md-5 btn btn-dark">Manage</a>
+                            <br />
+                            <label class="col-md-5 col-form-label-lg">Recharge List </label>
+                            <a asp-controller="RechargeList" asp-action="SelectProvider" class="col-md-5 btn btn-dark">Create New</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png" class="img-fluid" alt="Sample image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.validity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datapack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SMSLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Provider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                <a asp-action="FilterProvider" class="btn btn-primary float-right">
+                    Filter
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    ₹@Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.validity) Days
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datapack)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SMSLimit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Provider.ProviderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type.RechargeType)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

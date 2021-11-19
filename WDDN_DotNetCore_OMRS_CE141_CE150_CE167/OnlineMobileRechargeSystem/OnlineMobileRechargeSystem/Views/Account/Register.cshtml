@@ -1,0 +1,86 @@
+﻿@model OnlineMobileRechargeSystem.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .gradient-custom-3 {
+        /* fallback for old browsers */
+        background: #84fab0;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+
+    .gradient-custom-4 {
+        /* fallback for old browsers */
+        background: #84fab0;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+
+</style>
+
+<section class="bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
+    <div class="gradient-custom-3 container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5 w-110">
+                        <h3 class="text-center">Registration Form</h3>
+
+                        <form id="form1" method="post" class="mx-1 mx-md-4">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <!--Username-->
+                            <!--<div class="form-outline mb-4">
+                                <input type="text" asp-for="Username" class="form-control form-control-lg" />
+                                <label class="form-label" asp-for="Username">User Name</label>
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>-->
+
+                            <!--Email-->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="Email">Email</label>
+                                <input type="email" asp-for="Email" class="form-control form-control-lg" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <!--PhoneNum-->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="PhoneNum">Phone Number</label>
+                                <input type="text" asp-for="PhoneNum" class="form-control form-control-lg" />
+                                <span asp-validation-for="PhoneNum" class="text-danger"></span>
+                            </div>
+
+                            <!--Password-->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="Password">Password</label>
+                                <input type="password" asp-for="Password" class="form-control form-control-lg" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+                            <!--Confirm Password-->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" asp-for="ConfirmPassword">Confirm password</label>
+                                <input type="password" asp-for="ConfirmPassword" class="form-control form-control-lg" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+
+                            <!--Submit-->
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                            </div>
+
+                            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a asp-controller="account" asp-action="login" class="fw-bold text-body"><u>Login here</u></a></p>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+﻿@model OnlineMobileRechargeSystem.Models.RechargeList
+
+@{
+    ViewData["Title"] = "Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Summary</h1>
+<div>
+    <h5>Please Confirm</h5>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.validity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.validity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Datapack)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Datapack)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SMSLimit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SMSLimit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Voice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Voice)
+        </dd>
+    </dl>
+</div>
+    <div style="display:inline"> 
+        <form method="post" asp-action="Summary" asp-route-id="@Model.Id" style="display:inline">
+            <input type="text" name="ph_number" value="@ViewBag.number" hidden />
+            <button type="submit" class="btn btn-info">Buy</button>
+        </form>
+    
+        <form method="post" asp-controller="Packages" asp-action="Index" style="display:inline">
+            <input type="text" name="pid" value="@ViewBag.pid" hidden />
+            <input type="text" name="ph_number" value="@ViewBag.number" hidden />
+            <button type="submit" class="btn btn-info">Back to List</button>
+        </form>
+           
+    </div>

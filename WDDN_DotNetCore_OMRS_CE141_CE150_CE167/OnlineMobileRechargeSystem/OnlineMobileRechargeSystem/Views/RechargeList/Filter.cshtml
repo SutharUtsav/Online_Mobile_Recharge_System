@@ -1,0 +1,74 @@
+﻿@model IEnumerable<OnlineMobileRechargeSystem.Models.RechargeList>
+
+@{
+    ViewData["Title"] = "Filter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<p>
+    <p class="h1" style="display:inline">Filter List</p>
+    <a asp-action="Index" class="float-right btn btn-dark">Back to List</a>
+</p>
+<hr class="border-dark"/>
+<table class="table">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.validity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datapack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SMSLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Provider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    ₹@Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.validity) Days
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datapack)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SMSLimit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Provider.ProviderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type.RechargeType)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

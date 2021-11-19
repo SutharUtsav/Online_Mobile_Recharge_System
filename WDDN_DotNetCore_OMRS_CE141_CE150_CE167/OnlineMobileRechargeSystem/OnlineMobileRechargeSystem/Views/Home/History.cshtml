@@ -1,0 +1,63 @@
+﻿@model IEnumerable<OnlineMobileRechargeSystem.Models.ActivePlan>
+
+@{
+    ViewData["Title"] = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>History <a asp-action="HomePage" class="btn btn-dark float-right">Back</a></h1>
+
+<table class="table table-striped">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recharge.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recharge.validity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recharge.Datapack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.startdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.enddate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uid)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phonenumber)
+            </td>
+            <td>
+              ₹  @Html.DisplayFor(modelItem => item.Recharge.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recharge.validity) Days
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recharge.Datapack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.enddate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uid)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
